@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments/general.html :: css">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="category: ${categories}">
+        <th scope="row" th:text="${category.getId()}"></th>
+        <td th:text="${category.getTitle()}"></td>
+    </tr>
+    </tbody>
+</table>
+<a href="/categories/new" class="btn btn-primary position-fixed" style="right: 5%; bottom: 5%;">New category</a>
+<div th:insert="fragments/general.html :: js"></div>
+</body>
+</html>

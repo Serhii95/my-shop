@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="fragments/general.html :: css">
+    <meta charset="UTF-8">
+    <title>Create category</title>
+</head>
+<body>
+
+<form th:method="post" th:action="@{/categories}" th:object="${category}">
+    <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" class="form-control" th:field="*{title}" id="title">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<div th:insert="fragments/general.html :: js"></div>
+</body>
+</html>
