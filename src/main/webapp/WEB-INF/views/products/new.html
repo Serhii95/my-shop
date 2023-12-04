@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="fragments/general.html :: css">
+    <meta charset="UTF-8">
+    <title>Create product</title>
+</head>
+<body>
+
+<form th:method="post" th:action="@{/products}" th:object="${product}">
+    <div class="mb-1">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" class="form-control" th:field="*{title}" id="title">
+    </div>
+    <div class="mb-1">
+        <label for="price" class="form-label">Price</label>
+        <input type="number" class="form-control" th:field="*{price}" id="price">
+    </div>
+    <div class="mb-1">
+        <input type="checkbox" class="form-check-input" value="" th:field="*{available}" id="available">
+        <label for="available" class="form-check-label">Available</label>
+    </div>
+    <div class="mb-1">
+        <label for="amount" class="form-label">Amount</label>
+        <input type="number" class="form-control" th:field="*{amount}" id="amount">
+    </div>
+    <div class="mb-1">
+        <label for="discount" class="form-label">Discount</label>
+        <input type="number" class="form-control" th:field="*{discount}" id="discount">
+    </div>
+    <div class="mb-1">
+        <label for="description" class="form-label">Description</label>
+        <input type="text" class="form-control" th:field="*{description}" id="description">
+    </div>
+    <div class="mb-1">
+        <label for="characteristic" class="form-label">Characteristic</label>
+        <input type="text" class="form-control" th:field="*{characteristic}" id="characteristic">
+    </div>
+    <div class="mb-1">
+        <select class="form-select" aria-label="Select category" th:field="*{category.id}" name="id" id="category">
+            <option th:each="category: ${categories}" th:value="${category.getId()}" th:text="${category.getTitle()}"></option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<div th:insert="fragments/general.html :: js"></div>
+</body>
+</html>
